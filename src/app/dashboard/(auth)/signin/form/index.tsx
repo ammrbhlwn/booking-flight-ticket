@@ -2,8 +2,7 @@
 
 import React, { type FC } from 'react';
 import { type ActionResult, handleSignIn } from './actions';
-import { useFormStatus } from 'react-dom';
-import { useActionState } from 'react';
+import { useFormStatus, useFormState } from 'react-dom';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
@@ -23,7 +22,7 @@ const SubmitButton = () => {
 };
 
 const FormSignIn: FC = () => {
-  const [state, formAction] = useActionState(handleSignIn, initialFormState);
+  const [state, formAction] = useFormState(handleSignIn, initialFormState);
 
   console.log(state);
 
