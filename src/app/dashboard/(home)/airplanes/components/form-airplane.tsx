@@ -71,7 +71,6 @@ const FormAirplane: FC<FormAirplaneProps> = ({ type, defaultValues }) => {
           required
         />
       </div>
-
       <SubmitButtonForm />
     </form>
   );
