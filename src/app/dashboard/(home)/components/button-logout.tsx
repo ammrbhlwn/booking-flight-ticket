@@ -1,11 +1,17 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { LogOut } from 'lucide-react';
 import { logout } from '../actions';
 
+const handleLogout = async (formData: FormData): Promise<void> => {
+  await logout();
+};
+
 const ButtonLogout = () => {
   return (
     <div className="space-y-2">
-      <form action={logout}>
+      <form action={handleLogout}>
         <Button
           type="submit"
           variant={'destructive'}

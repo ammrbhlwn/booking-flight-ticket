@@ -22,7 +22,9 @@ function SubmitButton() {
 }
 
 const DeleteAirplane: FC<DeleteAirplaneProps> = ({ id }) => {
-  const deleteAirplaneWithId = deleteAirplane.bind(null, id);
+  const deleteAirplaneWithId = async (formData: FormData): Promise<void> => {
+    await deleteAirplane(id);
+  };
 
   return (
     <form action={deleteAirplaneWithId}>
