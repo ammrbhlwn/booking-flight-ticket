@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
         hostname: 'grynlzhmkoblsgifpdum.supabase.co',
       },
     ],
+    unoptimized: true,
   },
 };
 
