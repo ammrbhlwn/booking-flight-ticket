@@ -1,8 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import CompanyLogos from '../components/company-logos';
+import { getCityFilter } from './lib/data';
+import Navbar from '../components/navbar';
 
 export default async function HomePage() {
+  const filter = await getCityFilter();
+
   return (
     <>
       <section
@@ -10,6 +14,7 @@ export default async function HomePage() {
         className="bg-[url('/assets/images/background/airplane.png')] bg-no-repeat bg-cover bg-left-top -z-10"
       >
         <div className="Header-content bg-gradient-to-r from-[#080318] to-[rgba(8,3,24,0)] z=0">
+          <Navbar />
           <div className="hero-section container max-w-[1130px] w-full mx-auto flex flex-col gap-[90px] mt-[103px]">
             <div className="title flex flex-col gap-[30px]">
               <h1 className="font-extrabold text-[80px] leading-[90px]">
@@ -41,8 +46,17 @@ export default async function HomePage() {
                       id="departure"
                       className="font-semibold text-[22px] leading-[26.63px] appearance-none bg-[url(/assets/images/icons/arrow-down.svg)] bg-no-repeat bg-[right_1px] pr-[30px]"
                     >
-                      <option value="jkt">Jakarta</option>
-                      <option value="sby">Surabaya</option>
+                      <option value="a" disabled selected>
+                        Departure
+                      </option>
+                      {filter?.map((val, key) => (
+                        <option
+                          key={`${key} ${val.departureCity}`}
+                          value={val.departureCity}
+                        >
+                          {val.departureCity}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -65,8 +79,17 @@ export default async function HomePage() {
                       id="arrival"
                       className="font-semibold text-[22px] leading-[26.63px] appearance-none bg-[url(/assets/images/icons/arrow-down.svg)] bg-no-repeat bg-[right_1px] pr-[30px]"
                     >
-                      <option value="sang">Sanghai</option>
-                      <option value="bei">Beijing</option>
+                      <option value="d" disabled selected>
+                        Arrival
+                      </option>
+                      {filter?.map((val, key) => (
+                        <option
+                          key={`${key} ${val.destinationCity}`}
+                          value={val.destinationCity}
+                        >
+                          {val.destinationCity}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
