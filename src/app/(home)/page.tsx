@@ -3,6 +3,7 @@ import Link from 'next/link';
 import CompanyLogos from '../components/company-logos';
 import { getCityFilter } from './lib/data';
 import Navbar from '../components/navbar';
+import { searchFlight } from './lib/action';
 
 export default async function HomePage() {
   const filter = await getCityFilter();
@@ -26,7 +27,10 @@ export default async function HomePage() {
                 Crafted by best talented people around the world.
               </p>
             </div>
-            <form className="bg-white text-flysha-black w-full flex justify-between items-center rounded-[20px] p-5">
+            <form
+              className="bg-white text-flysha-black w-full flex justify-between items-center rounded-[20px] p-5"
+              action={searchFlight}
+            >
               <div className="flex gap-[50px] items-center p-5">
                 <div className="flex flex-col justify-center gap-[14px]">
                   <label htmlFor="departure" className="text-lg">

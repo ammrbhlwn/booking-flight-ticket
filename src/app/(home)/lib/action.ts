@@ -4,6 +4,7 @@ import { getUser, lucia } from '@/lib/auth';
 import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { objectToParams } from '@/lib/utils';
 
 export async function logout(): Promise<{ error: string } | null> {
   const { session } = await getUser();
@@ -26,4 +27,16 @@ export async function logout(): Promise<{ error: string } | null> {
 
   revalidatePath('/');
   return redirect('/');
+}
+
+export async function searchFlight(formData: FormData) {
+  const searchData = {
+    departure: formData.get('departure'),
+    arrival: formData.get('arrival'),
+    date: formData.get('date'),
+  };
+
+  const queryParams = objectToParams(searchData);
+
+  return redirect(`/available-flights?${queryParams}`);
 }
