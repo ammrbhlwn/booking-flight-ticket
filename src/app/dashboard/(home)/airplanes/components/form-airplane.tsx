@@ -4,7 +4,7 @@ import type { ActionResult } from '@/app/dashboard/(auth)/signin/form/actions';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import React, { type FC } from 'react';
-import { useFormState } from 'react-dom';
+import { useActionState } from 'react';
 import { saveAirplane, updateAirplane } from '../lib/actions';
 import type { Airplane } from '@prisma/client';
 import SubmitButtonForm from '../../components/submit-form-button';
@@ -23,7 +23,7 @@ const FormAirplane: FC<FormAirplaneProps> = ({ type, defaultValues }) => {
   const updateAirplaneWithId = (_state: ActionResult, formData: FormData) =>
     updateAirplane(null, defaultValues?.id!!, formData);
 
-  const [state, formAction] = useFormState(
+  const [state, formAction] = useActionState(
     type === 'ADD' ? saveAirplane : updateAirplaneWithId,
     initialFormState
   );
