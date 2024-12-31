@@ -1209,7 +1209,7 @@ export default async function HomePage() {
                   width={20}
                   height={20}
                 />
-                buildwithangga
+                FlySha
               </Link>
               <Link
                 href="#"
@@ -1221,13 +1221,13 @@ export default async function HomePage() {
                   width={20}
                   height={20}
                 />
-                team@bwa.com
+                flysha@mail.com
               </Link>
             </div>
           </div>
         </div>
         <p className="mx-auto mt-[60px] text-[#A0A0AC] text-sm z-10">
-          All Rights Reserved. Copyright BuildWithAngga 2024.
+          All Rights Reserved. Copyright FlySha 2024.
         </p>
       </footer>
     </>
