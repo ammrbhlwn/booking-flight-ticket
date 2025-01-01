@@ -1,4 +1,4 @@
-import React, { type FC, type ReactNode } from 'react';
+import React, { Suspense, type FC, type ReactNode } from 'react';
 import QCProvider from './providers/query-provider';
 import FlightProvider from './providers/flight-provider';
 
@@ -9,7 +9,9 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <QCProvider>
-      <FlightProvider>{children}</FlightProvider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <FlightProvider>{children}</FlightProvider>
+      </Suspense>
     </QCProvider>
   );
 };

@@ -7,11 +7,11 @@ type Params = {
 };
 
 interface EditAirplanePageProps {
-  params: Params;
+  params: Promise<Params>;
 }
 
 const EditAirplanePage: FC<EditAirplanePageProps> = async ({ params }) => {
-  const data = await getAirplaneById(params.id);
+  const data = await getAirplaneById((await params).id);
 
   return (
     <div>

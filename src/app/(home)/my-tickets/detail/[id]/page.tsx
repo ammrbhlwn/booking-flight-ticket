@@ -11,11 +11,11 @@ type Params = {
 };
 
 interface DetailTicketProps {
-  params: Params;
+  params: Promise<Params>;
 }
 
 export default async function DetailTicketPage({ params }: DetailTicketProps) {
-  const data = await getDetailTicket(params.id);
+  const data = await getDetailTicket((await params).id);
 
   return (
     <>

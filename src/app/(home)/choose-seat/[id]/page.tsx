@@ -10,12 +10,12 @@ type Params = {
 };
 
 interface ChooseSeatProps {
-  params: Params;
+  params: Promise<Params>;
 }
 
 export default async function ChooseSeatPage({ params }: ChooseSeatProps) {
   const { session } = await getUser();
-  const flight = await getFlightById(params.id);
+  const flight = await getFlightById((await params).id);
 
   return (
     <section

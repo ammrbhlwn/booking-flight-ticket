@@ -9,7 +9,7 @@ type Params = {
 };
 
 interface EditFlightPageProps {
-  params: Params;
+  params: Promise<Params>;
 }
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const EditFlightPage: FC<EditFlightPageProps> = async ({ params }) => {
   const airplanes = await getAirplanes();
-  const flight = await getFlightById(params.id);
+  const flight = await getFlightById((await params).id);
 
   return (
     <div>
