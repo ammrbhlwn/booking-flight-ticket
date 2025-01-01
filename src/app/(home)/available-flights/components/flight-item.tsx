@@ -89,7 +89,7 @@ export default function FlightItem({ data }: FlightItemProps) {
       <button
         type="button"
         onClick={bookNow}
-        className="font-bold text-flysha-black bg-flysha-light-purple rounded-full p-[12px_20px] h-[48px] transition-all duration-300 hover:shadow-[0_10px_20px_0_#B88DFF]"
+        className="font-bold text-flysha-black bg-flysha-light-purple rounded-full p-[12px_20px] h-[48px] transition-all duration-300 hover:shadow-[0_3px_20px_0_#B88DFF]"
       >
         Book Flight
       </button>

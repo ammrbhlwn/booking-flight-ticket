@@ -56,7 +56,7 @@ export default function PaymentDetail({ user }: PaymentDetailProps) {
         type="button"
         onClick={payTransaction}
         disabled={isLoading}
-        className="font-bold text-flysha-black bg-flysha-light-purple rounded-full h-12 w-full transition-all duration-300 hover:shadow-[0_10px_20px_0_#B88DFF] flex justify-center items-center"
+        className="font-bold text-flysha-black bg-flysha-light-purple rounded-full h-12 w-full transition-all duration-300 hover:shadow-[0_3px_20px_0_#B88DFF] flex justify-center items-center"
       >
         Checkout with Midtrans
       </button>

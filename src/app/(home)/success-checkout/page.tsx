@@ -33,7 +33,7 @@ export default async function SuccessPage() {
             <div className="flex flex-col gap-[14px]">
               <Link
                 href="/available-flights"
-                className="font-bold text-flysha-black bg-flysha-light-purple rounded-full h-12 w-full transition-all duration-300 hover:shadow-[0_10px_20px_0_#B88DFF] flex justify-center items-center"
+                className="font-bold text-flysha-black bg-flysha-light-purple rounded-full h-12 w-full transition-all duration-300 hover:shadow-[0_3px_20px_0_#B88DFF] flex justify-center items-center"
               >
                 Book More Flights
               </Link>

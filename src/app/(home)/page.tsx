@@ -49,8 +49,9 @@ export default async function HomePage() {
                       name="departure"
                       id="departure"
                       className="font-semibold text-[22px] leading-[26.63px] appearance-none bg-[url(/assets/images/icons/arrow-down.svg)] bg-no-repeat bg-[right_1px] pr-[30px]"
+                      defaultValue=""
                     >
-                      <option value="a" disabled selected>
+                      <option value="" disabled>
                         Departure
                       </option>
                       {filter?.map((val, key) => (
@@ -82,8 +83,9 @@ export default async function HomePage() {
                       name="arrival"
                       id="arrival"
                       className="font-semibold text-[22px] leading-[26.63px] appearance-none bg-[url(/assets/images/icons/arrow-down.svg)] bg-no-repeat bg-[right_1px] pr-[30px]"
+                      defaultValue=""
                     >
-                      <option value="d" disabled selected>
+                      <option value="" disabled>
                         Arrival
                       </option>
                       {filter?.map((val, key) => (
@@ -122,7 +124,7 @@ export default async function HomePage() {
               </div>
               <button
                 type="submit"
-                className="font-bold text-2xl leading-9 text-flysha-black text-center bg-flysha-light-purple rounded-[18px] p-[12px_30px] flex shrink-0 items-center h-[108px]  transition-all duration-300 hover:shadow-[0_10px_20px_0_#B88DFF]"
+                className="font-bold text-2xl leading-9 text-flysha-black text-center bg-flysha-light-purple rounded-[18px] p-[12px_30px] flex shrink-0 items-center h-[108px]  transition-all duration-300 hover:shadow-[0_3px_20px_0_#B88DFF]"
               >
                 Explore Now
               </button>
