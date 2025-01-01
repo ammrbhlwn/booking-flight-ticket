@@ -6,7 +6,6 @@ import { formFlightSchema } from './validation';
 import prisma from '../../../../../../lib/prisma';
 import { generateSeatPerClass } from '@/lib/utils';
 import { revalidatePath } from 'next/cache';
-import { unknown } from 'zod';
 
 export async function saveFlight(
   prevState: unknown,
