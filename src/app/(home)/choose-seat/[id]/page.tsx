@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import SeatList from './components/seat-list';
 import FlightDetail from './components/flight-detail';

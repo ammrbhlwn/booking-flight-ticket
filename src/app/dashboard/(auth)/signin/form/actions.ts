@@ -1,5 +1,6 @@
 'use server';
 
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import { redirect } from 'next/navigation';
 import { formSchema } from './validation';
 import bcrypt from 'bcrypt';

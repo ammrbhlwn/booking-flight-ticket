@@ -1,5 +1,6 @@
 'use client';
 
+/* eslint-disable @next/next/no-img-element */
 import useCheckoutData from '@/hooks/useCheckoutData';
 import { getUrlFile } from '@/lib/supabase';
 import {

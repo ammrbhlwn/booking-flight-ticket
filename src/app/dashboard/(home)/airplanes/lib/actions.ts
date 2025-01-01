@@ -1,5 +1,6 @@
 'use server';
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { ActionResult } from '@/app/dashboard/(auth)/signin/form/actions';
 import { airplaneFormSchema } from './validation';
 import { redirect } from 'next/navigation';

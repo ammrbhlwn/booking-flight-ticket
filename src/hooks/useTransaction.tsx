@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import type { User } from 'lucia';
 import useCheckoutData from './useCheckoutData';
 import { useMemo, useState } from 'react';

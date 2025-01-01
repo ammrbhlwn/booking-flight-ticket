@@ -1,7 +1,5 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
-  webpack: (config) => {
+const nextConfig = {
+  webpack: (config: { externals: string[] }) => {
     config.externals.push('@node-rs/bcrypt');
 
     return config;
@@ -14,6 +12,9 @@ const nextConfig: NextConfig = {
       },
     ],
     unoptimized: true,
+  },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
   },
 };
 

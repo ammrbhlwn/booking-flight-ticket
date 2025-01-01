@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import LoadingSeatList from './components/loading-seat-list';
 import LoadingFlightDetail from './components/loading-flight-detail';

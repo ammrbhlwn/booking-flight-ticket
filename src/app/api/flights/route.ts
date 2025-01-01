@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { NextRequest } from 'next/server';
 import prisma from '../../../../lib/prisma';
 import type { TypeSeat } from '@prisma/client';

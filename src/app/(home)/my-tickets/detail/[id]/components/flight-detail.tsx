@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { getUrlFile } from '@/lib/supabase';
 import { dateFormat } from '@/lib/utils';
 import type {

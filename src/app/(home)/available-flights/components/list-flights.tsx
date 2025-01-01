@@ -18,7 +18,7 @@ export default function ListFlights() {
         <FlightItem data={val} key={val.id} />
       ))}
       <p className="self-center text-sm text-[#A0A0AC] h-fit w-fit">
-        You've reached the end of results.
+        You’ve reached the end of results.
       </p>
     </div>
   );

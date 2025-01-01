@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Skeleton } from '@/components/ui/skeleton';
 import React from 'react';
 

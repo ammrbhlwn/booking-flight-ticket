@@ -31,7 +31,7 @@ export default function Loading() {
           <LoadingTicketCard />
           <LoadingTicketCard />
           <p className="self-center text-sm text-[#A0A0AC] h-fit w-fit">
-            You've reached the end of results.
+            You’ve reached the end of results.
           </p>
         </div>
       </section>

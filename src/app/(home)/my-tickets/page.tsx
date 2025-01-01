@@ -45,7 +45,7 @@ export default async function MyTicketsPage() {
             <TicketCard key={val.id} data={val} />
           ))}
           <p className="self-center text-sm text-[#A0A0AC] h-fit w-fit">
-            You've reached the end of results.
+            You’ve reached the end of results.
           </p>
         </div>
       </section>

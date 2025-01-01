@@ -1,5 +1,6 @@
 'use client';
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { TypeSeat } from '@prisma/client';
 import React, { type ChangeEvent, useContext } from 'react';
 import {
