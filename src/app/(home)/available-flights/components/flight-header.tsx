@@ -26,7 +26,9 @@ export default function FlightHeader() {
           : 'Choose your airline'}
       </h1>
       <p className="font-medium text-lg leading-[27px] w-fit">
-        {flights?.length} flights available
+        {flights && flights?.length > 0
+          ? `${flights.length} flights available`
+          : 'No flights available'}
       </p>
     </>
   );
