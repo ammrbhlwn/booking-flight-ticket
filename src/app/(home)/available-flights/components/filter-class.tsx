@@ -1,6 +1,5 @@
 'use client';
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { TypeSeat } from '@prisma/client';
 import React, { type ChangeEvent, useContext } from 'react';
 import {
@@ -40,6 +39,7 @@ export default function FilterClass() {
             name="seat"
             value={val}
             id={val}
+            onChange={handleChange}
             className="w-[18px] h-[18px] appearance-none checked:border-[3px] checked:border-solid checked:border-flysha-black rounded-full checked:bg-flysha-light-purple ring-2 ring-flysha-off-purple checked:ring-white"
           />
           {val}

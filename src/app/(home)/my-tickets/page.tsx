@@ -29,7 +29,7 @@ export default async function MyTicketsPage() {
               My Tickets
             </h1>
             <p className="font-medium text-lg leading-[27px] w-fit">
-              {data.length} flights available
+              {data.length} tickets purchased
             </p>
           </div>
           <div className="w-full h-[15px] bg-gradient-to-t from-[#080318] to-[rgba(8,3,24,0)] absolute bottom-0" />
