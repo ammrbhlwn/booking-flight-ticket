@@ -8,17 +8,6 @@ import { logout } from '../(home)/lib/action';
 export default async function NavbarAuth() {
   const { session, user } = await getUser();
 
-  const handleLogout = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const result = await logout();
-
-    if (result && result.error) {
-      console.error(result.error);
-    } else {
-      window.location.href = '/';
-    }
-  };
-
   return (
     <div className="inline-flex items-center gap-3">
       {session && user.role === 'CUSTOMER' ? (
@@ -38,7 +27,7 @@ export default async function NavbarAuth() {
       )}
 
       {session && user.role === 'CUSTOMER' && (
-        <form onSubmit={handleLogout}>
+        <form onSubmit={logout}>
           <Button variant="destructive" className="rounded-full">
             <LogOut className="w-4 h-4" />
           </Button>

@@ -24,7 +24,7 @@ const FormAirplane: FC<FormAirplaneProps> = ({ type, defaultValues }) => {
     if (defaultValues?.id) {
       return updateAirplane(null, defaultValues.id, formData);
     }
-    return Promise.reject(new Error('Airplane ID is required for update.'));
+    throw new Error('ID pesawat tidak ditemukan');
   };
 
   const [state, formAction] = useActionState(

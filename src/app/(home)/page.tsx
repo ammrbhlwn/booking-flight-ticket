@@ -54,12 +54,11 @@ export default async function HomePage() {
                       <option value="" disabled>
                         Departure
                       </option>
-                      {filter?.map((val, key) => (
-                        <option
-                          key={`${key} ${val.departureCity}`}
-                          value={val.departureCity}
-                        >
-                          {val.departureCity}
+                      {[
+                        ...new Set(filter?.map((val) => val.departureCity)),
+                      ].map((city, key) => (
+                        <option key={`${key} ${city}`} value={city}>
+                          {city}
                         </option>
                       ))}
                     </select>
@@ -88,12 +87,11 @@ export default async function HomePage() {
                       <option value="" disabled>
                         Arrival
                       </option>
-                      {filter?.map((val, key) => (
-                        <option
-                          key={`${key} ${val.destinationCity}`}
-                          value={val.destinationCity}
-                        >
-                          {val.destinationCity}
+                      {[
+                        ...new Set(filter?.map((val) => val.destinationCity)),
+                      ].map((city, key) => (
+                        <option key={`${key} ${city}`} value={city}>
+                          {city}
                         </option>
                       ))}
                     </select>
