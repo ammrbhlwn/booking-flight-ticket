@@ -27,4 +27,4 @@ try {
   await prisma.$disconnect();
 }
 
-export {};
+export { main };

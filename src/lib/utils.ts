@@ -74,26 +74,38 @@ export const rupiahFormat = (value: number) => {
   }).format(value);
 };
 
+// Type guards
+const isPrimitive = (value: unknown): value is string | number | boolean => {
+  return (
+    typeof value === 'string' ||
+    typeof value === 'number' ||
+    typeof value === 'boolean'
+  );
+};
+
+const isSerializable = (value: unknown): value is Record<string, unknown> | unknown[] => {
+  return typeof value === 'object' && value !== null;
+};
+
 export const objectToParams = (obj: Record<string, unknown>): string => {
   const queryParams = Object.entries(obj)
     .map(([key, value]) => {
       if (value === null || value === undefined) {
         return '';
       }
-      
-      const primitiveTypes = ['string', 'number', 'boolean'];
-      if (primitiveTypes.includes(typeof value)) {
+
+      if (isPrimitive(value)) {
         return `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`;
       }
-      
-      if (typeof value === 'object') {
+
+      if (isSerializable(value)) {
         try {
           return `${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(value))}`;
         } catch {
           return '';
         }
       }
-      
+
       return '';
     })
     .filter((param) => param !== '')
