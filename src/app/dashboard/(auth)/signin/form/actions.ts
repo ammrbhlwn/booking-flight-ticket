@@ -6,7 +6,7 @@ import { formSchema } from './validation';
 import bcrypt from 'bcrypt';
 import { lucia } from '@/lib/auth';
 import { cookies } from 'next/headers';
-import prisma from '../../../../../../lib/prisma';
+import { prisma } from '../../../../../../lib/prisma';
 
 export interface ActionResult {
   errorTitle: string | null;
@@ -57,7 +57,7 @@ export async function handleSignIn(
   }
 
   const session = await lucia.createSession(existingUser.id, {});
-  const sessionCookie = await lucia.createSessionCookie(session.id);
+  const sessionCookie = lucia.createSessionCookie(session.id);
 
   (await cookies()).set(
     sessionCookie.name,

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
+const ACCEPTED_IMAGE_TYPES = new Set(["image/jpeg", "image/jpg", "image/png"]);
 
 const MAX_FILE_SIZE = 2000000; // 2 MB
 
@@ -10,11 +10,11 @@ export const airplaneFormSchema = z.object({
 		.min(4, { message: "Nama Pesawat harus memiliki minimal 4 karakter" }),
 	code: z
 		.string({ required_error: "Kode Pesawat tidak boleh kosong" })
-		.regex(/^[A-Z]{3}-[0-9]{3}$/, "Format kode harus [XXX-111]"),
+		.regex(/^[A-Z]{3}-\d{3}$/, "Format kode harus [XXX-111]"),
 	image: z
 		.any()
 		.refine(
-			(file: File) => ACCEPTED_IMAGE_TYPES.includes(file.type),
+			(file: File) => ACCEPTED_IMAGE_TYPES.has(file.type),
 			"Image harus berekstensi jpg, jpeg, dan png"
 		)
 		.refine(

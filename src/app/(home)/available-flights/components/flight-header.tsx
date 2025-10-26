@@ -8,8 +8,8 @@ export default function FlightHeader() {
   const { flights, isLoading } = useContext(FlightContext) as FContext;
 
   let params = null;
-  if (typeof window !== 'undefined') {
-    params = new URLSearchParams(window.location.search);
+  if (typeof globalThis !== 'undefined') {
+    params = new URLSearchParams(globalThis.location.search);
   }
   const departure = params?.get('departure');
   const arrival = params?.get('arrival');

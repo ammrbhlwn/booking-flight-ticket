@@ -23,7 +23,7 @@ interface TicketCardProps {
   data: Data;
 }
 
-export default function TicketCard({ data }: TicketCardProps) {
+export default function TicketCard({ data }: Readonly<TicketCardProps>) {
   return (
     <div className="ticket-card flex justify-between items-center rounded-[20px] p-5 bg-flysha-bg-purple">
       <div className="flex gap-[16px] items-center">

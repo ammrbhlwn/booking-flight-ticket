@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, {
   createContext,
   Dispatch,
+  useMemo,
   useReducer,
   type FC,
   type ReactNode,
@@ -97,9 +98,14 @@ const FlightProvider: FC<FlightProviderProps> = ({ children }) => {
       axios.post('/api/flights', state).then((res) => res.data.data),
   });
 
+  const value = useMemo(
+    () => ({ flights: data, isLoading, dispatch, state }),
+    [data, isLoading, dispatch, state]
+  );
+
   return (
     <FlightContext.Provider
-      value={{ flights: data, isLoading, dispatch, state }}
+      value={value}
     >
       {children}
     </FlightContext.Provider>

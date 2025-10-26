@@ -1,5 +1,5 @@
 import type { FlightSeat } from '@prisma/client';
-import React, { createContext, useState, type FC, type ReactNode } from 'react';
+import React, { createContext, useMemo, useState, type FC, type ReactNode } from 'react';
 
 interface SeatProviderProps {
   children: ReactNode;
@@ -19,8 +19,10 @@ const SeatProvider: FC<SeatProviderProps> = ({ children }) => {
     setSeat(seat);
   };
 
+  const value = useMemo(() => ({ seat, setSelectedSeat }), [seat]);
+
   return (
-    <SeatContext.Provider value={{ seat, setSelectedSeat }}>
+    <SeatContext.Provider value={value}>
       {children}
     </SeatContext.Provider>
   );

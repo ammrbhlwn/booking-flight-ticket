@@ -51,7 +51,7 @@ const useTransaction = ({ user }: Props) => {
       const transaction = await transactionMutate.mutateAsync(bodyData);
 
       // handle midtrans
-      window.snap.pay(transaction.midtrans.token, {
+      (globalThis as any).snap.pay(transaction.midtrans.token, {
         onSuccess: (result: unknown) => {
           console.log(result);
           router.push('/success-checkout');

@@ -6,7 +6,7 @@ interface SeatItemProps {
   seat: FlightSeat;
 }
 
-export default function SeatItem({ seat }: SeatItemProps) {
+export default function SeatItem({ seat }: Readonly<SeatItemProps>) {
   const { setSelectedSeat } = useContext(SeatContext) as SeatContextType;
 
   return (

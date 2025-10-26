@@ -11,7 +11,7 @@ interface FlightCardProps {
   user: User | null;
 }
 
-export default function FlightCard({ user }: FlightCardProps) {
+export default function FlightCard({ user }: Readonly<FlightCardProps>) {
   const { data } = useCheckoutData();
 
   const selectedSeat = useMemo(() => {

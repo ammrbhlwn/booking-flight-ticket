@@ -33,7 +33,7 @@ export default function FormFlight({
   airplanes,
   defaultValues = null,
   type,
-}: FormFlightProps) {
+}: Readonly<FormFlightProps>) {
   const updateFlightWithId = (_state: ActionResult, formData: FormData) =>
     updateFlight(null, defaultValues ? defaultValues.id : null, formData);
 

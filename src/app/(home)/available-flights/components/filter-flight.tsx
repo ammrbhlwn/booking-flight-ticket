@@ -14,7 +14,7 @@ export default function FilterFlight() {
           id="direct"
           className="w-[18px] h-[18px] appearance-none checked:border-[3px] checked:border-solid checked:border-flysha-black rounded-full checked:bg-flysha-light-purple ring-2 ring-flysha-off-purple checked:ring-white"
         />
-        Direct
+        {' '}Direct
       </label>
       <label
         htmlFor="transit"
@@ -26,7 +26,7 @@ export default function FilterFlight() {
           id="transit"
           className="w-[18px] h-[18px] appearance-none checked:border-[3px] checked:border-solid checked:border-flysha-black rounded-full checked:bg-flysha-light-purple ring-2 ring-flysha-off-purple checked:ring-white"
         />
-        Transit
+        {' '}Transit
       </label>
       <label
         htmlFor="transits"
@@ -38,7 +38,7 @@ export default function FilterFlight() {
           id="transits"
           className="w-[18px] h-[18px] appearance-none checked:border-[3px] checked:border-solid checked:border-flysha-black rounded-full checked:bg-flysha-light-purple ring-2 ring-flysha-off-purple checked:ring-white"
         />
-        Transits ~5
+        {' '}Transits ~5
       </label>
     </div>
   );

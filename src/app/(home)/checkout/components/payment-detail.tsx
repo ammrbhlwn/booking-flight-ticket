@@ -10,7 +10,7 @@ interface PaymentDetailProps {
   user: User | null;
 }
 
-export default function PaymentDetail({ user }: PaymentDetailProps) {
+export default function PaymentDetail({ user }: Readonly<PaymentDetailProps>) {
   const { data } = useCheckoutData();
 
   const selectedSeat = useMemo(() => {
@@ -28,8 +28,8 @@ export default function PaymentDetail({ user }: PaymentDetailProps) {
           <span className="font-semibold">
             {data?.flightDetail?.price
               ? rupiahFormat(
-                  data.flightDetail.price + selectedSeat.additionalPrice
-                )
+                data.flightDetail.price + selectedSeat.additionalPrice
+              )
               : 0}
           </span>
         </div>
@@ -46,8 +46,8 @@ export default function PaymentDetail({ user }: PaymentDetailProps) {
           <span className="font-bold text-flysha-light-purple">
             {data?.flightDetail?.price
               ? rupiahFormat(
-                  data.flightDetail.price + selectedSeat.additionalPrice
-                )
+                data.flightDetail.price + selectedSeat.additionalPrice
+              )
               : 0}
           </span>
         </div>

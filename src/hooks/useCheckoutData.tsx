@@ -5,8 +5,8 @@ const useCheckoutData = () => {
   const [data, setData] = useState<Checkout | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.sessionStorage) {
-      const value = window.sessionStorage.getItem(CHECKOUT_KEY);
+    if (typeof globalThis !== 'undefined' && globalThis.sessionStorage) {
+      const value = globalThis.sessionStorage.getItem(CHECKOUT_KEY);
 
       if (value) {
         setData(JSON.parse(value));

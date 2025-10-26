@@ -19,7 +19,7 @@ interface FlightItemProps {
   data: FlightWithPlane;
 }
 
-export default function FlightItem({ data }: FlightItemProps) {
+export default function FlightItem({ data }: Readonly<FlightItemProps>) {
   const { state } = useContext(FlightContext) as FContext;
 
   const selectedSeat = useMemo(() => {

@@ -46,19 +46,17 @@ export const columns: ColumnDef<TicketType>[] = [
     cell: ({ row }) => {
       const ticket = row.original;
 
+      const STATUS_COLOR: Record<string, string> = {
+        SUCCESS: 'bg-green-500',
+        PENDING: 'bg-yellow-500',
+        FAILED: 'bg-red-500',
+      };
+
+      const statusColor = STATUS_COLOR[ticket.status] ?? 'bg-gray-400';
+
       return (
         <div className="space-y-1">
-          <Badge
-            className={cn(
-              ticket.status === 'SUCCESS'
-                ? 'bg-green-500'
-                : ticket.status === 'PENDING'
-                ? 'bg-yellow-500'
-                : 'bg-red-500'
-            )}
-          >
-            {ticket.status}
-          </Badge>
+          <Badge className={cn(statusColor)}>{ticket.status}</Badge>
         </div>
       );
     },

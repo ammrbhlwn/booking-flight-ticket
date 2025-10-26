@@ -1,19 +1,33 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { Children, isValidElement } from "react"
 
 const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
->(({ className, ...props }, ref) => (
-  <div className="relative w-full overflow-auto">
-    <table
-      ref={ref}
-      className={cn("w-full caption-bottom text-sm", className)}
-      {...props}
-    />
-  </div>
-))
+>(({ className, children, ...props }, ref) => {
+  if (process.env.NODE_ENV === "development") {
+    const hasHeader = Children.toArray(children).some(
+      (child) => isValidElement(child) && child.type === TableHeader
+    )
+    if (!hasHeader) {
+      console.warn("⚠️ [Table]: Missing <TableHeader> with <TableHead> elements for accessibility.")
+    }
+  }
+
+  return (
+    <div className="relative w-full overflow-auto">
+      <table
+        ref={ref}
+        className={cn("w-full caption-bottom text-sm", className)}
+        {...props}
+      >
+        {children}
+      </table>
+    </div>
+  )
+})
 Table.displayName = "Table"
 
 const TableHeader = React.forwardRef<

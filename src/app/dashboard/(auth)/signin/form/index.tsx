@@ -41,7 +41,7 @@ const FormSignIn: FC = () => {
 
             <ul className="list-disc list-inside">
               {state.errorDesc?.map((value, index) => (
-                <li key={index}>{value}</li>
+                <li key={`${value}-${index}`}>{value}</li>
               ))}
             </ul>
           </div>

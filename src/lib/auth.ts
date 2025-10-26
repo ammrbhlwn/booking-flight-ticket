@@ -1,5 +1,5 @@
 import { PrismaAdapter } from '@lucia-auth/adapter-prisma';
-import prisma from '../../lib/prisma';
+import {prisma} from '../../lib/prisma';
 import { Lucia, Session, User } from 'lucia';
 import { RoleUser } from '@prisma/client';
 import { cache } from 'react';
@@ -41,7 +41,7 @@ export const getUser = cache(
     const result = await lucia.validateSession(sessionId);
 
     try {
-      if (result.session && result.session?.fresh) {
+      if (result.session?.fresh) {
         const sessionCookie = lucia.createSessionCookie(result.session.id);
         (await cookies()).set(
           sessionCookie.name,

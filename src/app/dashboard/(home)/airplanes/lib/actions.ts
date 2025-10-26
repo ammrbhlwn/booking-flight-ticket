@@ -5,7 +5,7 @@ import type { ActionResult } from '@/app/dashboard/(auth)/signin/form/actions';
 import { airplaneFormSchema } from './validation';
 import { redirect } from 'next/navigation';
 import { deleteFile, uploadFile } from '@/lib/supabase';
-import prisma from '../../../../../../lib/prisma';
+import { prisma } from '../../../../../../lib/prisma';
 import { revalidatePath } from 'next/cache';
 
 export async function getAirplaneById(id: string) {
@@ -52,7 +52,7 @@ export async function saveAirplane(
   }
 
   try {
-    const data = await prisma.airplane.create({
+    await prisma.airplane.create({
       data: {
         name: values.data.name,
         code: values.data.code,
@@ -138,6 +138,7 @@ export async function updateAirplane(
       },
     });
   } catch (error) {
+    console.error("Error while updating airplane:", error);
     return {
       errorTitle: 'Failed to update data',
       errorDesc: ['Terjadi masalah pada koneksi, silahkan coba lagi'],

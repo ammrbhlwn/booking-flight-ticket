@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { NextRequest } from 'next/server';
-import prisma from '../../../../lib/prisma';
+import { prisma } from '../../../../lib/prisma';
 import type { TypeSeat } from '@prisma/client';
 
 export async function POST(request: NextRequest) {
@@ -16,10 +16,10 @@ export async function POST(request: NextRequest) {
   try {
     const data = await prisma.flight.findMany({
       where: {
-        departureCity: body.departure !== null ? body.departure : {},
-        destinationCity: body.arrival !== null ? body.arrival : {},
+        departureCity: body.departure || undefined,
+        destinationCity: body.arrival || undefined,
         seats:
-          body.seat !== null
+          body.seat
             ? {
                 some: {
                   type: body.seat as TypeSeat,
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
               }
             : {},
         departureDate:
-          departureDate !== null
+          departureDate
             ? {
                 gte: departureDate,
               }
@@ -47,6 +47,7 @@ export async function POST(request: NextRequest) {
 
     return Response.json({ data });
   } catch (error) {
+    console.error('Failed to fetch flights:', error);
     return Response.json(
       {
         error: true,

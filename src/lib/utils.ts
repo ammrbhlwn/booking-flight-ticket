@@ -44,7 +44,7 @@ export const generateSeatPerClass = (flightId: string) => {
       for (let i = 1; i <= 5; i++) {
         seats.push({
           seatNumber: seat + i,
-          type: className as TypeSeat,
+          type: className,
           flightId,
         });
       }
@@ -75,15 +75,13 @@ export const rupiahFormat = (value: number) => {
 };
 
 export const objectToParams = (obj: { [key: string]: unknown }) => {
-  const queryParams = Object.keys(obj)
-    .map((key) => {
-      if (obj[key] !== null) {
-        return `${key}=${obj[key]}`;
-      }
-
-      return '';
+  const queryParams = Object.entries(obj)
+    .map(([key, value]) => {
+      if (value === null || value === undefined) return '';
+      if (typeof value === 'object') return `${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(value))}`;
+      return `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`;
     })
-    .filter((key) => key !== '')
+    .filter((param) => param !== '')
     .join('&');
 
   return queryParams;
@@ -120,14 +118,16 @@ export const mappingSeats = (seats: FlightSeat[]) => {
 };
 
 export function makeid(length: number) {
-  let result = '';
   const characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  const charactersLength = characters.length;
-  let counter = 0;
-  while (counter < length) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    counter += 1;
+  let result = '';
+
+  const array = new Uint32Array(length);
+  crypto.getRandomValues(array);
+
+  for (let i = 0; i < length; i++) {
+    result += characters[array[i] % characters.length];
   }
+
   return result;
 }

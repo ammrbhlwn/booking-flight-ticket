@@ -18,7 +18,7 @@ interface TransactionDetailProps {
   data: Data;
 }
 
-export default function TransactionDetail({ data }: TransactionDetailProps) {
+export default function TransactionDetail({ data }: Readonly<TransactionDetailProps>) {
   return (
     <div className="flex flex-col gap-[30px] w-[400px]">
       <div className="flex flex-col gap-[18px]">

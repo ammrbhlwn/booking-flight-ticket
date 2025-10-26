@@ -9,7 +9,7 @@ interface SeatListProps {
   seats: FlightSeat[];
 }
 
-export default function SeatList({ seats }: SeatListProps) {
+export default function SeatList({ seats }: Readonly<SeatListProps>) {
   const checkout = useCheckoutData();
 
   const { seatA, seatB, seatC, seatD } = useMemo(() => {

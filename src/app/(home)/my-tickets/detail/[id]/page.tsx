@@ -14,7 +14,7 @@ interface DetailTicketProps {
   params: Promise<Params>;
 }
 
-export default async function DetailTicketPage({ params }: DetailTicketProps) {
+export default async function DetailTicketPage({ params }: Readonly<DetailTicketProps>) {
   const data = await getDetailTicket((await params).id);
 
   return (

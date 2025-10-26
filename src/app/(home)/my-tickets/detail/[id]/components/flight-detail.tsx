@@ -20,7 +20,7 @@ interface FlightDetailProps {
   data: Data;
 }
 
-export default function FlightDetail({ data }: FlightDetailProps) {
+export default function FlightDetail({ data }: Readonly<FlightDetailProps>) {
   return (
     <div className="bg-white flex flex-col rounded-[20px] w-[340px]">
       <div className="flex flex-col p-[20px_20px_25px] border-b-2 border-dotted border-flysha-grey gap-4 relative">
