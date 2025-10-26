@@ -74,12 +74,27 @@ export const rupiahFormat = (value: number) => {
   }).format(value);
 };
 
-export const objectToParams = (obj: { [key: string]: unknown }) => {
+export const objectToParams = (obj: Record<string, unknown>): string => {
   const queryParams = Object.entries(obj)
     .map(([key, value]) => {
-      if (value === null || value === undefined) return '';
-      if (typeof value === 'object') return `${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(value))}`;
-      return `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`;
+      if (value === null || value === undefined) {
+        return '';
+      }
+      
+      const primitiveTypes = ['string', 'number', 'boolean'];
+      if (primitiveTypes.includes(typeof value)) {
+        return `${encodeURIComponent(key)}=${encodeURIComponent(String(value))}`;
+      }
+      
+      if (typeof value === 'object') {
+        try {
+          return `${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(value))}`;
+        } catch {
+          return '';
+        }
+      }
+      
+      return '';
     })
     .filter((param) => param !== '')
     .join('&');
